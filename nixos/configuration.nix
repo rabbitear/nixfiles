@@ -20,6 +20,85 @@
     ./hardware-configuration.nix
   ];
 
+  #################################
+  ### From ye 'ol configuration.nix
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
+  # Intel KVM
+  boot.kernelModules = [ "kvm-intel" "fuse" "coretemp" ];
+
+
+  networking.networkmanager.enable = true;
+  time.timeZone = "America/Anchorage";
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  # Enable the a Desktop Environment.
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+      options = "caps:ctrl_modifier";
+    };
+  };
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "kreator";
+  };
+
+  # gnome setttings daemon udev rules enable
+  services.gnome.gnome-settings-daemon.enable = true;
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound with pipewire.
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  services.flatpak.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "gtk";
+  };
+
+  # Libvirt & QEMU
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;	# optimized QEMU build
+      swtpm.enable = true;	# TPM emulation if needed
+      ovmf.enable = true;	# UEFI firmware for VMs
+    };
+  };
+
+
+
+  ### the ye 'ol conf
+  #################################
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -62,22 +141,18 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "your-hostname";
+  networking.hostName = "hacknet";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     # FIXME: Replace with your username
-    your-username = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "correcthorsebatterystaple";
+    kreator = {
       isNormalUser = true;
+      description = "Jon";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
     };
   };
 
@@ -94,6 +169,98 @@
     };
   };
 
+  #########################################
+  ### From the good old configuration.nix
+  programs.firefox.enable = true;
+  # Enable network manager applet
+  programs.nm-applet.enable = true;
+  # dam secrets
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  programs.dconf.profiles.user.databases = [
+    {
+      lockAll = true;
+      settings = {
+        "org/gnome/desktop/interface" = {
+          accent-color = "green";
+        };
+        "org/gnome/desktop/input-sources" = {
+          xkb-options = [ "ctrl:nocaps" ];
+        };
+        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+	    "org/gnome/mutter".dynamic-workspaces = false;
+        "org/gnome/desktop/wm/preferences".num-workspaces = "4";
+        "org/gnome/desktop/wm/keybindings" = {
+	      switch-to-workspace-1 = [ "<Control>1" ];
+          switch-to-workspace-2 = [ "<Control>2" ];
+          switch-to-workspace-3 = [ "<Control>3" ];
+          switch-to-workspace-4 = [ "<Control>4" ];
+	      move-to-workspace-1 = [ "<Shift>F1" ];
+          move-to-workspace-2 = [ "<Shift>F2" ];
+          move-to-workspace-3 = [ "<Shift>F3" ];
+          move-to-workspace-4 = [ "<Shift>F4" ];
+	      toggle-fullscreen = [ "<Super>F" ];
+	    };
+      };
+    }
+  ];
+  environment.systemPackages = with pkgs; [
+    vim
+    helix
+    helix-gpt
+    tmux
+    nodejs
+    bashInteractive
+    adwaita-icon-theme
+    gnomeExtensions.ddterm
+    gnomeExtensions.appindicator
+    gnome-tweaks
+    gnome-software
+    refine
+    pass
+    browserpass
+    openssl
+    rustup
+    gcc
+    git
+    htop
+    ncdu
+    duf
+    iotop
+    wget
+    curl
+    rsync
+    gnumake
+    fd
+    unzip
+    ripgrep
+    zip
+    fzf
+    jq
+    yq
+    dmenu
+    bemenu
+    qemu
+    virt-manager
+    virt-viewer
+    xclip
+    graphviz
+    gv
+    kitty
+    alacritty
+    bat
+    glow
+    abduco
+    dvtm
+    file
+    tree
+  ];
+  ### good old configuration.nix
+  #########################################
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "25.05";
 }
