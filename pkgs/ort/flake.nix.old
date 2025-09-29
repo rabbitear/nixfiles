@@ -1,0 +1,51 @@
+#{
+#  description = "ORT Rust Project";
+#
+#  inputs = {
+#    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";  # Use the latest nixpkgs
+#  };
+#
+#  outputs = { self, nixpkgs }: {
+#    packages.x86_64-linux.default = nixpkgs.rustPlatform.buildRustPackage {
+#      pname = "ort";
+#      version = "0.1.0";
+#      src = builtins.fetchGit {
+#        url = "https://github.com/grahamking/ort";
+#        rev = "master"; # or your branch
+#      };
+#      cargoLock = ./Cargo.lock;
+#    };
+#  };
+#}
+
+# =================================================
+# from ort
+# =================================================
+{
+  description = "ORT Rust Project";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; # Use fixed version 
+  };
+
+  outputs = { self, nixpkgs }: {
+    packages = {
+      x86_64-linux.default = pkgs.rustPlatform.buildRustPackage {
+        pname = "ort";
+        #version = "0.1.0";
+        src = builtins.fetchGit {
+          url = "https://github.com/grahamking/ort";
+          #rev = "v0.1.0"; # Prefer tag for reproducibility 
+        };
+        cargoLock = ./Cargo.lock;
+        meta = {
+          homepage = "https://github.com/grahamking/ort";
+          description = "A CLI client for OpenRouter.ai";
+          license = nixpkgs.lib.licenses.mit; # or another if needed maintainers = with nixpkgs.lib.maintainers; [ your_alias ];
+        };
+      };
+      defaultPackage.x86_64-linux = self.packages.x86_64-linux.default;
+    };
+  };
+}
+
