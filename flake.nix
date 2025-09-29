@@ -35,6 +35,7 @@
           system = "x86_64-linux"; # or aarch64-linux if ARM
           modules = [
             ./hosts/hacknet/configuration.nix
+            ./hosts/hacknet/hardware-configuration.nix
 
             # Enable Home Manager as a NixOS module
             home-manager.nixosModules.home-manager
