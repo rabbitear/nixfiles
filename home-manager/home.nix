@@ -59,7 +59,7 @@
         space.q = ":q";
         esc = [ "collapse_selection" "keep_primary_selection" ];
       };
-    }
+    };
   };
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
