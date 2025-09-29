@@ -257,6 +257,7 @@
     dvtm
     file
     tree
+    wl-clipboard
   ];
   ### good old configuration.nix
   #########################################
