@@ -1,51 +1,44 @@
 {
-  description = "Rabbitear's NixOS + Home Manager flake setup";
+  description = "Your new nix config";
 
   inputs = {
-    # Nixpkgs 25.05 release
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    # Nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
-    # Home Manager 25.05 release, follows nixpkgs
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # flake-utils makes multi-system builds easier
-    flake-utils.url = "github:numtide/flake-utils";
+    # Home manager
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true; # if you use unfree packages
-        };
-
-        # Bring in your ort.nix as a custom package
-        ort = pkgs.callPackage ./pkgs/ort.nix { };
-      in {
-        packages.ort = ort;
-      }
-    )
-    // {
-      nixosConfigurations = {
-        hacknet = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux"; # or aarch64-linux if ARM
-          modules = [
-            ./hosts/hacknet/configuration.nix
-            ./hosts/hacknet/hardware-configuration.nix
-
-            # Enable Home Manager as a NixOS module
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.kreator = import ./home/kreator/home.nix;
-            }
-          ];
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+  in {
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      # FIXME replace with your hostname
+      your-hostname = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        # > Our main nixos configuration file <
+        modules = [./nixos/configuration.nix];
       };
     };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      # FIXME replace with your username@hostname
+      "your-username@your-hostname" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        # > Our main home-manager configuration file <
+        modules = [./home-manager/home.nix];
+      };
+    };
+  };
 }
