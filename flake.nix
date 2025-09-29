@@ -2,12 +2,12 @@
   description = "Rabbitear's NixOS + Home Manager flake setup";
 
   inputs = {
-    # Nixpkgs 25.11 release
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    # Nixpkgs 25.05 release
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
-    # Home Manager 25.11 release, follows nixpkgs
+    # Home Manager 25.05 release, follows nixpkgs
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
