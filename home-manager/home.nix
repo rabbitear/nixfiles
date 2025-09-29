@@ -40,11 +40,12 @@
 
   # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "kreator";
+    homeDirectory = "/home/kreator";
   };
 
-  # Add stuff for your user as you see fit:
+  # Add stuff for your user as youe see fit:
+  programs.helix.enable = true;
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
@@ -56,5 +57,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "25.05";
 }
