@@ -23,6 +23,7 @@
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/kreator/.config/sops/age/keys.txt";
   #################################
   ### From ye 'ol configuration.nix
   boot.loader = {
