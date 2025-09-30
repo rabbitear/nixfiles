@@ -107,8 +107,11 @@
         };
         "com/github/amezin/ddterm" = {
           ddterm-toggle-hotkey = [ "<Alt>space" ];
+          bold-is-bright = false;
+          background-color = "rgb(0,0,0)";
+          foreground-color = "rgb(0,255,0)";
           use-system-font = false;
-          use-theme-colors=false;
+          use-theme-colors = false;
           custom-font = "Monospace 22";
           shortcut-window-size-inc = [ "<Alt>Down" ];
           shortcut-window-size-dec = [ "<Alt>Up" ];
@@ -116,8 +119,6 @@
       };
     }
   ];
-
-
   # gnome setttings daemon udev rules enable
   services.gnome.gnome-settings-daemon.enable = true;
   # Enable CUPS to print documents.
