@@ -93,10 +93,11 @@
           move-to-workspace-3 = [ "<Super><Shift>3" ];
           move-to-workspace-4 = [ "<Super><Shift>4" ];
 	      toggle-fullscreen = [ "<Super>F" ];
+          activate-window-meuu = [ ];
 	    };
-        #"/org/gnome/settings-daemon/plugins/media-keys" = {
-        #  "magnifier" = [ "<Super>z" ];
-        #};
+        "/org/gnome/settings-daemon/plugins/media-keys" = {
+          magnifier = [ "<Super>Z" ];
+        };
         "org/gnome/shell" = {
           enabled-extensions = [
             "no-overview@fthx"
@@ -104,12 +105,10 @@
             "appindicatorsupport@rgcjonas.gmail.com"
           ];
         };
-        "org/gnome/desktop/wm/keybindings" = {
-          "activate-window-menu" = [ "" ];
-        };
         "com/github/amezin/ddterm" = {
-          activation-hotkey = [ "<Alt>space" ];
+          ddterm-toggle-hotkey = [ "<Alt>space" ];
           use-system-font = false;
+          use-theme-colors=false;
           custom-font = "Monospace 22";
           shortcut-window-size-inc = [ "<Alt>Down" ];
           shortcut-window-size-dec = [ "<Alt>Up" ];
