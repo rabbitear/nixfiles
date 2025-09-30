@@ -26,7 +26,6 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/configuration.nix
-          ./home-manager/gnome.nix
           #./pkgs/ort.nix
         ];
       };
