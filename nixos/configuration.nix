@@ -25,6 +25,7 @@
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
+    timeout = 1;
   };
   # Intel KVM
   boot.kernelModules = [ "kvm-intel" "fuse" "coretemp" ];
@@ -93,9 +94,9 @@
           move-to-workspace-4 = [ "<Super><Shift>4" ];
 	      toggle-fullscreen = [ "<Super>F" ];
 	    };
-        "/org/gnome/settings-daemon/plugins/media-keys" = {
-          "magnifier" = [ "<Super>z" ];
-        };
+        #"/org/gnome/settings-daemon/plugins/media-keys" = {
+        #  "magnifier" = [ "<Super>z" ];
+        #};
         "org/gnome/shell" = {
           enabled-extensions = [
             "no-overview@fthx"
@@ -293,6 +294,7 @@
     file
     tree
     wl-clipboard
+    #hyprmagnifier
   ];
   ### good old configuration.nix
   #########################################
