@@ -101,6 +101,7 @@
         "/org/gnome/shell".enabled-extensions" = [
           'appindicatorsupport@rgcjonas.gmail.com'
           'ddterm@amezin.github.com'
+          'no-overview@fthx'
         ];
         "/org/gnome/desktop/wm/keybindings".activate-window-menu = [
           # nothing because we want it disabled
