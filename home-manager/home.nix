@@ -63,7 +63,12 @@
     };
   };
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ 
+    #steam 
+    mutt
+    w3m
+    lynx
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
