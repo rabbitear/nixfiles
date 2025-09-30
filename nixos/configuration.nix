@@ -49,7 +49,7 @@
   # Enable the a Desktop Environment.
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
+    displayManager.lightdm.enable = true;
     desktopManager.gnome = {
       enable = true;
       shellExtensions = with pkgs.gnomeExtensions; [
@@ -68,6 +68,10 @@
     enable = true;
     user = "kreator";
   };
+
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services."lightdm".enableGnomeKeyring = true;
+
   programs.dconf.enable = true;
 
   programs.dconf.profiles.user.databases = [
@@ -244,6 +248,7 @@
     adwaita-icon-theme
     gnomeExtensions.ddterm
     gnomeExtensions.appindicator
+    gnomeExtensions.no-overview
     gnome-tweaks
     gnome-software
     refine
