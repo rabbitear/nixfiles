@@ -92,11 +92,10 @@
           move-to-workspace-3 = [ "<Super><Shift>3" ];
           move-to-workspace-4 = [ "<Super><Shift>4" ];
 	      toggle-fullscreen = [ "<Super>F" ];
-
-
 	    };
-
-        "/org/gnome/settings-daemon/plugins/media-keys".magnifier = [ "<Super>z" ];
+        "/org/gnome/settings-daemon/plugins/media-keys" = {
+          "magnifier" = [ "<Super>z" ];
+        };
         "org/gnome/shell" = {
           enabled-extensions = [
             "no-overview@fthx"
