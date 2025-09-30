@@ -87,6 +87,15 @@
           move-to-workspace-4 = [ "<Shift>F4" ];
 	      toggle-fullscreen = [ "<Super>F" ];
 	    };
+        "/org/gnome/shell".enabled-extensions" = [
+          'appindicatorsupport@rgcjonas.gmail.com'
+          'ddterm@amezin.github.com'
+        ];
+        "/org/gnome/desktop/wm/keybindings".activate-window-menu = [
+          # nothing because we want it disabled
+          # it has as@ [] 
+        ];
+
       };
     }
   ];
