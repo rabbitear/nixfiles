@@ -102,7 +102,10 @@
           # nothing because we want it disabled
           # it has as@ [] 
         ];
+        "/com/github/amezin/ddterm".ddterm-toggle-hotkey = ['<Alt>space'];
+        "/com/github/amezin/ddterm".use-system-font = false;
 
+        "/com/github/amezin/ddterm".custom-font = "Monospace 20";
       };
     }
   ];
