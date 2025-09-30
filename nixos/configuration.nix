@@ -101,7 +101,9 @@
             "appindicatorsupport@rgcjonas.gmail.com"
           ];
         };
-        "/org/gnome/desktop/wm/keybindings".activate-window-menu = [ "" ];
+        "org/gnome/desktop/wm/keybindings" = {
+          "activate-window-menu" = [ "" ];
+        };
         "com/github/amezin/ddterm" = {
           activation-hotkey = [ "<Alt>space" ];
           use-system-font = false;
