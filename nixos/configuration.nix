@@ -52,11 +52,6 @@
     displayManager.lightdm.enable = true;
     desktopManager.gnome = {
       enable = true;
-      shellExtensions = with pkgs.gnomeExtensions; [
-        no-overview
-        ddterm
-        appindicator
-      ];
     };
     xkb = {
       layout = "us";
@@ -98,19 +93,20 @@
           move-to-workspace-4 = [ "<Shift>F4" ];
 	      toggle-fullscreen = [ "<Super>F" ];
 	    };
-        "/org/gnome/shell".enabled-extensions" = [
-          'appindicatorsupport@rgcjonas.gmail.com'
-          'ddterm@amezin.github.com'
-          'no-overview@fthx'
-        ];
-        "/org/gnome/desktop/wm/keybindings".activate-window-menu = [
-          # nothing because we want it disabled
-          # it has as@ [] 
-        ];
-        "/com/github/amezin/ddterm".ddterm-toggle-hotkey = ['<Alt>space'];
-        "/com/github/amezin/ddterm".use-system-font = false;
 
-        "/com/github/amezin/ddterm".custom-font = "Monospace 20";
+        "org/gnome/shell" = {
+          enabled-extensions = [
+            "no-overview@fthx"
+            "ddterm@amezin.github.com"
+            "appindicatorsupport@rgcjonas.gmail.com"
+          ];
+        };
+        "/org/gnome/desktop/wm/keybindings".activate-window-menu = [ "" ];
+        "com/github/amezin/ddterm" = {
+          activation-hotkey = [ "<Alt>space" ];
+          use-system-font = false;
+          custom-font = "Monospace 22";
+        };
       };
     }
   ];
