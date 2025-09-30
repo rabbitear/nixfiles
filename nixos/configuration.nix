@@ -50,7 +50,14 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    desktopManager.gnome = {
+      enable = true;
+      shellExtensions = with pkgs.gnomeExtensions; [
+        no-overview
+        ddterm
+        appindicator
+      ];
+    };
     xkb = {
       layout = "us";
       variant = "";
