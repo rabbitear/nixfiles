@@ -62,6 +62,7 @@
     user = "kreator";
   };
 
+  programs.dconf.enable = true;
   # gnome setttings daemon udev rules enable
   services.gnome.gnome-settings-daemon.enable = true;
   # Enable CUPS to print documents.

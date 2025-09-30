@@ -12,9 +12,10 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
 
+    (inputs.home-manager + "/modules/programs/dconf.nix")
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./gnome.nix
+    #./gnome.nix <- I have this in the flake.nix file
   ];
 
   nixpkgs = {
