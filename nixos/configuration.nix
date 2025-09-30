@@ -108,6 +108,8 @@
           activation-hotkey = [ "<Alt>space" ];
           use-system-font = false;
           custom-font = "Monospace 22";
+          shortcut-window-size-inc = [ "<Alt>Down" ];
+          shortcut-window-size-dec = [ "<Alt>Up" ];
         };
       };
     }
