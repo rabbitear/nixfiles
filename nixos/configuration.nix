@@ -83,17 +83,20 @@
 	    "org/gnome/mutter".dynamic-workspaces = false;
         "org/gnome/desktop/wm/preferences".num-workspaces = "4";
         "org/gnome/desktop/wm/keybindings" = {
-	      switch-to-workspace-1 = [ "<Control>1" "<Super>1" "<F1>" ];
-          switch-to-workspace-2 = [ "<Control>2" "<Super>2" "<F2>" ];
-          switch-to-workspace-3 = [ "<Control>3" "<Super>3" "<F3>" ];
-          switch-to-workspace-4 = [ "<Control>4" "<Super>4" "<F4>" ];
-	      move-to-workspace-1 = [ "<Shift>F1" ];
-          move-to-workspace-2 = [ "<Shift>F2" ];
-          move-to-workspace-3 = [ "<Shift>F3" ];
-          move-to-workspace-4 = [ "<Shift>F4" ];
+	      switch-to-workspace-1 = [  "<Super>1" ];
+          switch-to-workspace-2 = [  "<Super>2" ];
+          switch-to-workspace-3 = [  "<Super>3" ];
+          switch-to-workspace-4 = [  "<Super>4" ];
+	      move-to-workspace-1 = [ "<Super><Shift>1" ];
+          move-to-workspace-2 = [ "<Super><Shift>2" ];
+          move-to-workspace-3 = [ "<Super><Shift>3" ];
+          move-to-workspace-4 = [ "<Super><Shift>4" ];
 	      toggle-fullscreen = [ "<Super>F" ];
+
+
 	    };
 
+        "/org/gnome/settings-daemon/plugins/media-keys".magnifier = [ "<Super>z" ];
         "org/gnome/shell" = {
           enabled-extensions = [
             "no-overview@fthx"
