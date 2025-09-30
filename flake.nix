@@ -4,6 +4,8 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-25.05";
@@ -14,6 +16,7 @@
     self,
     nixpkgs,
     home-manager,
+    sops-nix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -26,6 +29,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/configuration.nix
+          sops-nix.nixosModules.sops
           #./pkgs/ort.nix
         ];
       };

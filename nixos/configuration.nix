@@ -13,6 +13,7 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
+    inputs.sops-nix.nixosModules.sops
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
@@ -20,6 +21,8 @@
     ./hardware-configuration.nix
   ];
 
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
   #################################
   ### From ye 'ol configuration.nix
   boot.loader = {
@@ -83,6 +86,12 @@
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
 	    "org/gnome/mutter".dynamic-workspaces = false;
         "org/gnome/desktop/wm/preferences".num-workspaces = "4";
+        "org/gnome/desktop/background" = {
+          picture-options = "zoom";
+          primary-color = "#02023c3c8888";
+          picture-uri = "file:///home/kreator/.dotfiles/wallpaper.png";
+          picture-uri-dark = "file:///home/kreator/.dotfiles/wallpaper.png";
+        };
         "org/gnome/desktop/wm/keybindings" = {
 	      switch-to-workspace-1 = [ "<Control>1" ];
           switch-to-workspace-2 = [ "<Control>2" ];
@@ -95,9 +104,9 @@
 	      toggle-fullscreen = [ "<Super>F" ];
           activate-window-menu = [ "" ];
 	    };
-        #"/org/gnome/settings-daemon/plugins/media-keys" = {
-        #  "magnifier" = [ "<Super>Z" ];
-        #};
+        "org/gnome/settings-daemon/plugins/media-keys" = {
+          "magnifier" = [ "<Super>Z" ];
+        };
         "org/gnome/shell" = {
           enabled-extensions = [
             "no-overview@fthx"
