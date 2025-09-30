@@ -93,7 +93,7 @@
           move-to-workspace-3 = [ "<Control><Shift>3" ];
           move-to-workspace-4 = [ "<Control><Shift>4" ];
 	      toggle-fullscreen = [ "<Super>F" ];
-          #activate-window-menu = [ "<Super><Shift>M" ];
+          activate-window-menu = [ "" ];
 	    };
         #"/org/gnome/settings-daemon/plugins/media-keys" = {
         #  "magnifier" = [ "<Super>Z" ];
