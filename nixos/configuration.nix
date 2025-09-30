@@ -207,6 +207,9 @@
       };
     }
   ];
+  environment.variables = {
+     GSK_RENDERER = "ngl";
+  };
   environment.systemPackages = with pkgs; [
     vim
     helix
