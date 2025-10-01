@@ -21,12 +21,12 @@
     ./hardware-configuration.nix
   ];
 
-  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFile = ../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/kreator/.config/sops/age/keys.txt";
   # ytv: vimjoyer "NixOS Secrets Management | SOPS-NIX (minute 3:33)
-  #sops.secrets.example-key = { };
-  #sops.secrets."m
+  sops.secrets.example-key = { };
+  sops.secrets."myservice/my_subdir/my_secret" = { };
   #################################
   ### From ye 'ol configuration.nix
   boot.loader = {
