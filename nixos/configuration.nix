@@ -25,10 +25,13 @@
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/kreator/.config/sops/age/keys.txt";
   # ytv: vimjoyer "NixOS Secrets Management | SOPS-NIX (minute 3:33)
+  #    NOTE:  I'm stopping here!! this works now!
+  #   I'll finish, do watch minute 4:31 and behond for the rest!!
   sops.secrets.example-key = { };
   sops.secrets."myservice/my_subdir/my_secret" = {
     owner = config.users.users.kreator.name;
   };
+  # everything is a plus :)
   #################################
   ### From ye 'ol configuration.nix
   boot.loader = {
