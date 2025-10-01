@@ -102,10 +102,14 @@
           picture-uri-dark = "file:///home/kreator/.dotfiles/wallpaper.png";
         };
         "org/gnome/desktop/wm/keybindings" = {
-	      switch-to-workspace-1 = [ "<Control>1" ];
-          switch-to-workspace-2 = [ "<Control>2" ];
-          switch-to-workspace-3 = [ "<Control>3" ];
-          switch-to-workspace-4 = [ "<Control>4" ];
+          switch-to-application-1 = [ "" ];
+          switch-to-application-2 = [ "" ];
+          switch-to-application-3 = [ "" ];
+          switch-to-application-4 = [ "" ];
+	      switch-to-workspace-1 = [ "<Super>1" ];
+          switch-to-workspace-2 = [ "<Super>2" ];
+          switch-to-workspace-3 = [ "<Super>3" ];
+          switch-to-workspace-4 = [ "<Super>4" ];
 	      move-to-workspace-1 = [ "<Control><Shift>1" ];
           move-to-workspace-2 = [ "<Control><Shift>2" ];
           move-to-workspace-3 = [ "<Control><Shift>3" ];
