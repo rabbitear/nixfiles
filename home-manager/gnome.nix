@@ -3,6 +3,15 @@
 { lib, config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    gnomeExtensions.no-overview
+    gnomeExtensions.appindicator
+    gnomeExtensions.ddterm 
+    cheese
+    iagno   # go game
+    hitori  # sudoku game
+    gnome-characters
+  ];
   dconf.settings = {
     "org/gnome/shell" = {
       disable-user-extensions = false;
