@@ -64,10 +64,23 @@
   };
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
-    #steam 
+    age
     mutt
     w3m
     lynx
+    rustup
+    ncdu
+    duf
+    iotop
+    wget
+    fd
+    ripgrep
+    fzf
+    dmenu
+    bemenu
+    fuzzel
+    glow
+    bat
   ];
 
   # Enable home-manager and git

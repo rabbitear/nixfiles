@@ -116,6 +116,14 @@
         "org/gnome/settings-daemon/plugins/media-keys" = {
           "magnifier" = [ "<Super>Z" ];
         };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+          binding = [ "<Super>Y" ];
+          command = "~/.vim/share/wayland/screenshot-to-journal.sh";
+          name = "Screenshot Note";
+        };
+        "org/gnome/settings-daemon/plugins/media-keys" = {
+          custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+        };
         "org/gnome/shell" = {
           enabled-extensions = [
             "no-overview@fthx"
@@ -277,42 +285,29 @@
     pass
     browserpass
     openssl
-    rustup
     gcc
     git
     htop
-    ncdu
-    duf
-    iotop
-    wget
     curl
     rsync
     gnumake
-    fd
     unzip
-    ripgrep
     zip
-    fzf
     jq
     yq
-    dmenu
-    bemenu
     qemu
     virt-manager
     virt-viewer
     xclip
+    wl-clipboard
     graphviz
     gv
     kitty
     alacritty
-    bat
-    glow
     abduco
     dvtm
     file
     tree
-    wl-clipboard
-    #hyprmagnifier
   ];
   ### good old configuration.nix
   #########################################
