@@ -211,9 +211,9 @@
     nodejs
     bashInteractive
     adwaita-icon-theme
-    gnomeExtensions.ddterm
-    gnomeExtensions.appindicator
-    gnomeExtensions.no-overview
+    #gnomeExtensions.ddterm
+    #gnomeExtensions.appindicator
+    #gnomeExtensions.no-overview
     gnome-tweaks
     gnome-software
     refine

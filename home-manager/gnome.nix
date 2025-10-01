@@ -4,6 +4,21 @@
 
 {
   dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        no-overview.extensionUuid
+        ddterm.extensionUuid
+        appindicator.extensionUuid
+      ];
+    };
+    #"org/gnome/shell" = {
+    #  enabled-extensions = [
+    #    "no-overview@fthx"
+    #    "ddterm@amezin.github.com"
+    #    "appindicatorsupport@rgcjonas.gmail.com"
+    #  ];
+    #};
     "org/gnome/desktop/interface" = {
       accent-color = "green";
     };
@@ -51,13 +66,6 @@
       #  };
       #};
       magnifier = [ "<Super>Z" ];
-    };
-    "org/gnome/shell" = {
-      enabled-extensions = [
-        "no-overview@fthx"
-        "ddterm@amezin.github.com"
-        "appindicatorsupport@rgcjonas.gmail.com"
-      ];
     };
     "com/github/amezin/ddterm" = {
       ddterm-toggle-hotkey = [ "<Alt>space" ];
