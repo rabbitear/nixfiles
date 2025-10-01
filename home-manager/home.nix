@@ -39,7 +39,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "kreator";
     homeDirectory = "/home/kreator";
@@ -62,6 +61,7 @@
       };
     };
   };
+
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     age
@@ -87,6 +87,8 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.browserpass.enable = true;
+
+  dconf.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

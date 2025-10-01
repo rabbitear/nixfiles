@@ -80,77 +80,6 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services."lightdm".enableGnomeKeyring = true;
 
-  programs.dconf.enable = true;
-
-  programs.dconf.profiles.user.databases = [
-    {
-      lockAll = true;
-      settings = {
-        "org/gnome/desktop/interface" = {
-          accent-color = "green";
-        };
-        "org/gnome/desktop/input-sources" = {
-          xkb-options = [ "ctrl:nocaps" ];
-        };
-        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-	    "org/gnome/mutter".dynamic-workspaces = false;
-        "org/gnome/desktop/wm/preferences".num-workspaces = "4";
-        "org/gnome/desktop/background" = {
-          picture-options = "zoom";
-          primary-color = "#02023c3c8888";
-          picture-uri = "file:///home/kreator/.dotfiles/wallpaper.png";
-          picture-uri-dark = "file:///home/kreator/.dotfiles/wallpaper.png";
-        };
-        "org/gnome/desktop/wm/keybindings" = {
-          switch-to-application-1 = [ "" ];
-          switch-to-application-2 = [ "" ];
-          switch-to-application-3 = [ "" ];
-          switch-to-application-4 = [ "" ];
-	      switch-to-workspace-1 = [ "F1" ];
-          switch-to-workspace-2 = [ "F2" ];
-          switch-to-workspace-3 = [ "F3" ];
-          switch-to-workspace-4 = [ "F4" ];
-	      move-to-workspace-1 = [ "<Control><Shift>1" ];
-          move-to-workspace-2 = [ "<Control><Shift>2" ];
-          move-to-workspace-3 = [ "<Control><Shift>3" ];
-          move-to-workspace-4 = [ "<Control><Shift>4" ];
-	      toggle-fullscreen = [ "<Super>F" ];
-          activate-window-menu = [ "" ];
-	    };
-        "org/gnome/settings-daemon/plugins/media-keys" = {
-          "magnifier" = [ "<Super>Z" ];
-        };
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-          binding = [ "<Super>Y" ];
-          command = "~/.vim/share/wayland/screenshot-to-journal.sh";
-          name = "Screenshot Note";
-        };
-        "org/gnome/settings-daemon/plugins/media-keys" = {
-          custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
-        };
-        "org/gnome/shell" = {
-          enabled-extensions = [
-            "no-overview@fthx"
-            "ddterm@amezin.github.com"
-            "appindicatorsupport@rgcjonas.gmail.com"
-          ];
-        };
-        "com/github/amezin/ddterm" = {
-          ddterm-toggle-hotkey = [ "<Alt>space" ];
-          bold-is-bright = false;
-          background-color = "rgb(0,0,0)";
-          foreground-color = "rgb(0,255,0)";
-          use-system-font = false;
-          use-theme-colors = false;
-          custom-font = "Monospace 22";
-          shortcut-window-size-inc = [ "<Alt>Down" ];
-          shortcut-window-size-dec = [ "<Alt>Up" ];
-          shortcut-next-tab = [ "<Alt>Right" ];
-          shortcut-prev-tab = [ "<Alt>Left" ];
-        };
-      };
-    }
-  ];
   # gnome setttings daemon udev rules enable
   services.gnome.gnome-settings-daemon.enable = true;
   # Enable CUPS to print documents.
@@ -310,6 +239,7 @@
     gv
     kitty
     alacritty
+    flameshot
     abduco
     dvtm
     file
