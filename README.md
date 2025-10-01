@@ -1,6 +1,6 @@
 # Rabbitear's Nixfiles
 
-Learning and impressed with **Nix**!
+_Learning_ and _impressed_ with **Nix**!
 So, I choose __Gnome__ because, nobody makes _declarivate configs_.
 And, Gnome still has my favorit _zoomer magnifier_.  Gnomes faults can be fixed with a little attentment, imo.
 
