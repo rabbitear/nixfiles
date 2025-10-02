@@ -85,7 +85,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # tailscale --- I out the overlays above at the top of the file.
+  # tailscale --- 
+  # overlay for distable network checks are above in this file
+  # `sudo tailscale up` will get you on tailsale.
   services.tailscale.enable = true;
   services.tailscale.interfaceName = "userspace-networking";
 
@@ -137,6 +139,7 @@
 
 
       # This is to prevent the tests trying to access the network device
+      # see below for more tailscale.
       (final: prev: {
         tailscale = prev.tailscale.overrideAttrs (old: {
           doCheck = false;
