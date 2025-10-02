@@ -85,6 +85,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # tailscale --- I out the overlays above at the top of the file.
+  services.tailscale.enable = true;
+  services.tailscale.interfaceName = "userspace-networking";
+
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -129,6 +134,15 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+
+
+      # This is to prevent the tests trying to access the network device
+      (final: prev: {
+        tailscale = prev.tailscale.overrideAttrs (old: {
+          doCheck = false;
+        });
+      })
+      
     ];
     # Configure your nixpkgs instance
     config = {
