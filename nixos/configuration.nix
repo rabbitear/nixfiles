@@ -60,12 +60,9 @@
   };
 
   # Enable the a Desktop Environment.
+  services.displayManager.sddm.enable = true;
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
-    #displayManager.gdm.enable = false;
-    #displayManager.lightdm.enable = true;
-    #displayManager.greetd.enable = true;
     desktopManager.gnome = {
       enable = true;
     };
@@ -80,21 +77,11 @@
     user = "kreator";
   };
 
-  #services.greetd = {
-  #  enable = true;
-  #  settings = rec {
-  #    initial_session = {
-  #      command = "dbus-run-session gnome-session";
-  #      user = "kreator";
-  #    };
-  #    default_session = initial_session;
-  #  };
-  #};
+  # gnome setttings daemon udev rules enable
   services.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-settings-daemon.enable = true;
   #security.pam.services."lightdm".enableGnomeKeyring = true;
 
-  # gnome setttings daemon udev rules enable
-  services.gnome.gnome-settings-daemon.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -197,7 +184,7 @@
     kreator = {
       isNormalUser = true;
       description = "Jon";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "users" ];
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
@@ -217,6 +204,13 @@
     };
   };
 
+  services.syncthing = {
+    enable = true;
+    group = "users";
+    user = "kreator";
+    dataDir = "/home/kreator/play";
+    configDir = "/home/kreator/.config/syncthing";
+  };
   #########################################
   ### From the good old configuration.nix
   programs.firefox.enable = true;
