@@ -62,7 +62,10 @@
   # Enable the a Desktop Environment.
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
+    displayManager.sddm.enable = true;
+    #displayManager.gdm.enable = false;
+    #displayManager.lightdm.enable = true;
+    #displayManager.greetd.enable = true;
     desktopManager.gnome = {
       enable = true;
     };
@@ -77,8 +80,18 @@
     user = "kreator";
   };
 
+  #services.greetd = {
+  #  enable = true;
+  #  settings = rec {
+  #    initial_session = {
+  #      command = "dbus-run-session gnome-session";
+  #      user = "kreator";
+  #    };
+  #    default_session = initial_session;
+  #  };
+  #};
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services."lightdm".enableGnomeKeyring = true;
+  #security.pam.services."lightdm".enableGnomeKeyring = true;
 
   # gnome setttings daemon udev rules enable
   services.gnome.gnome-settings-daemon.enable = true;
