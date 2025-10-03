@@ -81,6 +81,7 @@
     fuzzel
     glow
     bat
+    nixd
   ];
 
   # Enable home-manager and git
