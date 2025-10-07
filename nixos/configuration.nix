@@ -84,6 +84,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.kanata.enable = true;
 
   # tailscale --- 
   # overlay for distable network checks are above in this file
