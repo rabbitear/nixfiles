@@ -64,11 +64,12 @@
 
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
+    rustup
+    superTuxKart
     age
     mutt
     w3m
     lynx
-    rustup
     ncdu
     duf
     iotop

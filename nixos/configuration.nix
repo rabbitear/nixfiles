@@ -103,6 +103,7 @@
   };
 
   services.flatpak.enable = true;
+  #services.gnome.flatpak.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -230,14 +231,13 @@
   environment.systemPackages = with pkgs; [
     vim
     helix
-    helix-gpt
     tmux
     nodejs
     bashInteractive
     adwaita-icon-theme
-    #gnomeExtensions.ddterm
-    #gnomeExtensions.appindicator
-    #gnomeExtensions.no-overview
+    flatpak
+    flatpak-xdg-utils
+    input-leap
     gnome-tweaks
     gnome-software
     refine
@@ -268,6 +268,8 @@
     dvtm
     file
     tree
+    sops
+    age
   ];
   ### good old configuration.nix
   #########################################
