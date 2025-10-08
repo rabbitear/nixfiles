@@ -28,17 +28,24 @@
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [
-          ./nixos/configuration.nix
+          ./hosts/hacknet/configuration.nix
           sops-nix.nixosModules.sops
-          #./pkgs/ort.nix
+        ];
+      };
+      yoshi = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/yoshi/configuration.nix
+          sops-nix.nixosModules.sops
         ];
       };
     };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
+    # ktr- "kreator@hacknet" = home-manager.lib.homeManagerConfiguration {
     homeConfigurations = {
-      "kreator@hacknet" = home-manager.lib.homeManagerConfiguration {
+      "kreator" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <

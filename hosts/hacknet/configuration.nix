@@ -18,7 +18,8 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    # ktr- use the one the nixos orginally generated in /etc
+    /etc/nixos/hardware-configuration.nix
   ];
 
   sops.defaultSopsFile = ../secrets/secrets.yaml;
