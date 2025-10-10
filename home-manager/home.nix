@@ -63,7 +63,18 @@
   };
 
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ 
+  # =====
+  # ktr - got this from tonybtw, oct 9, 2025
+  home.packages = with pkgs; [
+    (pkgs.writeShellApplication {
+      name = "ns";
+      runtimeInputs = with pkgs; [
+        fzf
+        nix-search-tv
+      ];
+      text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
+    })
+    # everything else
     rustup
     superTuxKart
     age
