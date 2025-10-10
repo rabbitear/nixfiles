@@ -74,9 +74,7 @@
       ];
       text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
     })
-  ];
-
-  home.packages = with pkgs; [ 
+    # everything else
     rustup
     superTuxKart
     age
