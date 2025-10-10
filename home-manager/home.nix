@@ -94,6 +94,7 @@
     glow
     bat
     nixd
+    marksman
   ];
 
   # Enable home-manager and git

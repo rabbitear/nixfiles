@@ -48,10 +48,14 @@
       #switch-to-application-2 = pkgs.lib.mkTuple [];
       #switch-to-application-3 = pkgs.lib.mkTuple [];
       #switch-to-application-4 = pkgs.lib.mkTuple [];
-	  switch-to-workspace-1 = [ "F1" ];
-      switch-to-workspace-2 = [ "F2" ];
-      switch-to-workspace-3 = [ "F3" ];
-      switch-to-workspace-4 = [ "F4" ];
+      #switch-to-workspace-1 = [ "F1" ];
+      #switch-to-workspace-2 = [ "F2" ];
+      #switch-to-workspace-3 = [ "F3" ];
+      #switch-to-workspace-4 = [ "F4" ];
+	  switch-to-workspace-1 = [ "<Control>1" ];
+      switch-to-workspace-2 = [ "<Control>2" ];
+      switch-to-workspace-3 = [ "<Control>3" ];
+      switch-to-workspace-4 = [ "<Control>4" ];
 	  move-to-workspace-1 = [ "<Control><Shift>1" ];
       move-to-workspace-2 = [ "<Control><Shift>2" ];
       move-to-workspace-3 = [ "<Control><Shift>3" ];
@@ -89,5 +93,7 @@
       shortcut-next-tab = [ "<Alt>Right" ];
       shortcut-prev-tab = [ "<Alt>Left" ];
     };
+    "org/gnome/desktop/screensaver".lock-enabled = false;
+    "org/gnome/desktop/interface".clock-show-weekday = true;
   };
 }
