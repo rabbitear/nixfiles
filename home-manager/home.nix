@@ -88,7 +88,11 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "rabbitear";
+    userEmail = "weatchu@gmail.com";
+  };
   programs.browserpass.enable = true;
 
   dconf.enable = true;

@@ -39,6 +39,14 @@
           sops-nix.nixosModules.sops
         ];
       };
+      sasha = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/sasha/configuration.nix
+          sops-nix.nixosModules.sops
+        ];
+      };
+
     };
 
     # Standalone home-manager configuration entrypoint

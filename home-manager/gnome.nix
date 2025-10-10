@@ -87,7 +87,7 @@
       foreground-color = "rgb(0,255,0)";
       use-system-font = false;
       use-theme-colors = false;
-      custom-font = "Monospace 22";
+      custom-font = "Monospace 18";
       shortcut-window-size-inc = [ "<Alt>Down" ];
       shortcut-window-size-dec = [ "<Alt>Up" ];
       shortcut-next-tab = [ "<Alt>Right" ];
