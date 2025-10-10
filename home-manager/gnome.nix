@@ -30,6 +30,7 @@
     #};
     "org/gnome/desktop/interface" = {
       accent-color = "green";
+      text-scaling-factor = 2.0;
     };
     "org/gnome/desktop/input-sources" = {
       xkb-options = [ "ctrl:nocaps" ];
@@ -44,27 +45,25 @@
       picture-uri-dark = "file:///home/kreator/.dotfiles/wallpaper.png";
     };
     "org/gnome/desktop/wm/keybindings" = {
-      #switch-to-application-1 = mkTuple [];
-      #switch-to-application-2 = pkgs.lib.mkTuple [];
-      #switch-to-application-3 = pkgs.lib.mkTuple [];
-      #switch-to-application-4 = pkgs.lib.mkTuple [];
       #switch-to-workspace-1 = [ "F1" ];
       #switch-to-workspace-2 = [ "F2" ];
       #switch-to-workspace-3 = [ "F3" ];
       #switch-to-workspace-4 = [ "F4" ];
-	  switch-to-workspace-1 = [ "<Control>1" ];
+  	  switch-to-workspace-1 = [ "<Control>1" ];
       switch-to-workspace-2 = [ "<Control>2" ];
       switch-to-workspace-3 = [ "<Control>3" ];
       switch-to-workspace-4 = [ "<Control>4" ];
-	  move-to-workspace-1 = [ "<Control><Shift>1" ];
+	    move-to-workspace-1 = [ "<Control><Shift>1" ];
       move-to-workspace-2 = [ "<Control><Shift>2" ];
       move-to-workspace-3 = [ "<Control><Shift>3" ];
       move-to-workspace-4 = [ "<Control><Shift>4" ];
-	  toggle-fullscreen = [ "<Super>F" ];
-      #activate-window-menu = pkgs.lib.mkTuple [];
+	    toggle-fullscreen = [ "<Super>F" ];
       activate-window-menu = [ "<Shift><Super>M" ];
 	};
     "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybinding/custom0/"
+      ];
       #custom-keybindings = {
       #  custom0 = {
       #];
@@ -79,6 +78,12 @@
       #  };
       #};
       magnifier = [ "<Super>Z" ];
+    };
+
+    "org/gnome/settings-daemon/plugins/meida-keys/custom-keybindings/custom0" = {
+      binding = [ "<Super>Y" ];
+      command = "flameshot gui";
+      name = "Flameshot";
     };
     "com/github/amezin/ddterm" = {
       ddterm-toggle-hotkey = [ "<Alt>space" ];
